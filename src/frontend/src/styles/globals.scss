@@ -1,0 +1,13 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: $background;
+  scroll-behavior: smooth;
+  width: 100vw;
+}
