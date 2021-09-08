@@ -1,11 +1,16 @@
-import "./App.css";
+import Footer from "./components/Footer/Footer";
+import LikeButton from "./components/LikeButton/LikeButton";
+import Header from "./components/Header/Header";
+import "./styles/globals.scss";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">Current Boilerplate code</header>
+    <div>
+      <Header />
+      <LikeButton />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
