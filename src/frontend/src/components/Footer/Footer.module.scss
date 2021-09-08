@@ -1,7 +1,13 @@
 @import "../../styles/variables.scss";
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .footerContainer {
-  font-size: 1.25em;
+  font-size: 1em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -10,14 +16,14 @@
 
   .projectName {
     font-weight: bold;
-    margin: 0.75em 0;
+    margin: 1.25em 0;
   }
 
   .socials {
-    margin: 0.75em 0;
+    margin: 1.25em 0;
 
     a {
-      margin: 0 1em;
+      margin: 0 1.25em;
       text-decoration: none;
       color: white;
     }
@@ -28,6 +34,6 @@
   }
 
   .c {
-    margin: 0.75em 0;
+    margin: 1.25em 0;
   }
 }
