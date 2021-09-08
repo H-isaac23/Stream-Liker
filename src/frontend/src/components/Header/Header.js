@@ -4,7 +4,9 @@ import styles from "./Header.module.scss";
 const Header = () => {
   return (
     <div className={styles.headerContainer}>
-      <header>Stream Liker</header>
+      <div className={styles.headerMask}>
+        <header>Stream Liker</header>
+      </div>
     </div>
   );
 };

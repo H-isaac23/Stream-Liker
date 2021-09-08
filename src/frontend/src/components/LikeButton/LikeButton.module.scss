@@ -1,0 +1,29 @@
+@import "../../styles/variables.scss";
+
+.buttonContainer {
+  background: $primary;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 3em;
+
+  button {
+    font-size: 1.5em;
+    padding: 1em 2em;
+    border-radius: 1em;
+    border: 2px solid hsl(240, 49%, 19%);
+    background: hsl(240, 26%, 30%);
+    color: white;
+  }
+
+  button:hover {
+    background: hsl(240, 14%, 29%);
+  }
+
+  button:active {
+    color: hsl(240, 26%, 30%);
+    background: white;
+  }
+}

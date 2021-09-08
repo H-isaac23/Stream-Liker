@@ -1,7 +1,6 @@
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
-  const reddit_site = "https://www.reddit.com/r/Hololive/";
   const twitter_site = "https://twitter.com/dev__holo";
   const github_site = "https://github.com/H-isaac23";
 
@@ -15,9 +14,6 @@ const Footer = () => {
           </a>
           <a href={twitter_site} target="_blank" rel="noreferrer">
             Twitter
-          </a>
-          <a href={reddit_site} target="_blank" rel="noreferrer">
-            Reddit
           </a>
         </p>
         <div className={styles.c}>

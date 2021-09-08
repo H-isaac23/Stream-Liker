@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./LikeButton.module.scss";
 
 const LikeButton = () => {
   return (
-    <div>
+    <div className={styles.buttonContainer}>
       <button>Like</button>
     </div>
   );

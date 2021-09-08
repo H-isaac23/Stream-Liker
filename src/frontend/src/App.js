@@ -4,8 +4,11 @@ import Header from "./components/Header/Header";
 import "./styles/globals.scss";
 
 const App = () => {
+  const style = {
+    height: "100vh",
+  };
   return (
-    <div>
+    <div style={style}>
       <Header />
       <LikeButton />
       <Footer />
