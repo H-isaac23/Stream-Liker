@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.headerContainer {
+  font-size: 1.25em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 3em;
+  width: 100%;
+
+  header {
+    color: $white;
+    margin-left: 1em;
+  }
+}
