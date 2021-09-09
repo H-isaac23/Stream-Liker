@@ -1,5 +1,5 @@
 import Footer from "./components/Footer/Footer";
-import LikeButton from "./components/LikeButton/LikeButton";
+import Body from "./components/LikeButton/Body";
 import Header from "./components/Header/Header";
 import "./styles/globals.scss";
 
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div style={style}>
       <Header />
-      <LikeButton />
+      <Body />
       <Footer />
     </div>
   );
