@@ -1,0 +1,39 @@
+.body-primary-enter {
+  position: absolute;
+  filter: opacity(0);
+  transform: translateX(10em);
+}
+.body-primary-enter-active {
+  filter: opacity(100%);
+  transform: translateX(0);
+  transition: filter 300ms ease, transform 1000ms ease;
+}
+.body-primary-exit {
+  position: absolute;
+  filter: opacity(100%);
+}
+.body-primary-exit-active {
+  filter: opacity(0);
+  transition: filter 300ms ease, transform 1000ms ease;
+  transform: translateX(10em);
+}
+
+.bodyLoading-enter {
+  position: absolute;
+  transform: translateX(-10em);
+  filter: opacity(0);
+}
+.bodyLoading-enter-active {
+  filter: opacity(100%);
+  transform: translateX(0);
+  transition: all 1000ms ease;
+}
+.bodyLoading-exit {
+  position: absolute;
+  filter: opacity(100%);
+}
+.bodyLoading-exit-active {
+  filter: opacity(0);
+  transform: translateX(10em);
+  transition: all 1000ms ease;
+}
