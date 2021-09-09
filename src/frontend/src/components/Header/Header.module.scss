@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+
+.headerContainer {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 3em;
+  width: 100%;
+  padding: 0.75em;
+
+  .headerMask {
+    margin-left: 1em;
+    background: $background;
+
+    header {
+      border: 2px solid #f64c72;
+      border-radius: 10px;
+      height: 100%;
+      background: linear-gradient(45deg, #f64c72, orange);
+      font-size: 0.75em;
+      font-weight: 500;
+      background-clip: text;
+      color: transparent;
+      padding: 1em;
+    }
+  }
+}

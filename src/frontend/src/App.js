@@ -1,11 +1,19 @@
-import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Body from "./components/Body/Body";
+import Header from "./components/Header/Header";
+import "./styles/globals.scss";
 
-function App() {
+const App = () => {
+  const style = {
+    height: "100vh",
+  };
   return (
-    <div className="App">
-      <header className="App-header">Current Boilerplate code</header>
+    <div style={style}>
+      <Header />
+      <Body />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

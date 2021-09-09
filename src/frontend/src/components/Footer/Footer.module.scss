@@ -1,0 +1,43 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerContainer {
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: transparent;
+
+  .projectName {
+    background: linear-gradient(45deg, #f64c72, orange);
+    background-clip: text;
+    font-weight: bold;
+    margin: 1.25em 0;
+  }
+
+  .socials {
+    margin: 1.25em 0;
+
+    a {
+      margin: 0 1.25em;
+      text-decoration: none;
+      color: white;
+    }
+
+    a:hover {
+      color: #ccc;
+    }
+  }
+
+  .c {
+    background: linear-gradient(45deg, #f64c72, orange);
+    background-clip: text;
+    margin: 1.25em 0;
+  }
+}
