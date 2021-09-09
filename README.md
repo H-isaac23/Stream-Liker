@@ -4,7 +4,7 @@ A website version of my project Youtube-Stream-Liker.
 ## Goal
 Finish this project before the end of the day (September 8, 2021)
 
-Well shit I can't finish it cause pldt sucks
+Lmao testing takes a lot longer than I thought
 
 ## Other stuff
 Will update later on, I wanna get on the code right away.
