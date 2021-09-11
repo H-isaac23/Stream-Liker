@@ -4,12 +4,34 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { CSSTransition } from "react-transition-group";
 import "./Body.css";
+import getStreams from "../../services/getStreams";
 
 const Body = () => {
   const [showing, setShowing] = useState("Like");
 
   const onClickingLike = () => {
+    const accounts = [
+      {
+        accountName: "Fubuki",
+        accountId: "UCdn5BQ06XqgXoAxIhbqw5Rg",
+        __v: 0,
+        id: "61383d71fd82d6748e90bfaf",
+      },
+      {
+        accountName: "Matsuri",
+        accountId: "UCQ0UDLQCjY0rmuxCDE38FGg",
+        __v: 0,
+        id: "61383d73fd82d6748e90bfb3",
+      },
+      {
+        accountName: "Aki",
+        accountId: "UCFTLzh12_nrtzqBPsTCqenA",
+        __v: 0,
+        id: "61383d74fd82d6748e90bfb7",
+      },
+    ];
     setShowing("Loading");
+    getStreams(accounts);
   };
 
   return (
