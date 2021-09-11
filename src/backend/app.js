@@ -7,6 +7,11 @@ const config = require("./utils/config");
 const url = config.MONGODB_URI;
 const accountRouter = require("./controllers/accounts");
 const cors = require("cors");
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 
 mongoose
   .connect(url, {
@@ -16,7 +21,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err.message));
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(middleware.requestLogger);
 
