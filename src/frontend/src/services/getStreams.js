@@ -1,6 +1,7 @@
 const axios = require("axios");
 const baseUrl =
   process.env.REACT_APP_CORS_ANYWHERE_URL + "https://www.youtube.com/channel/";
+const apiUrl = "/api/v1/accounts";
 
 const getStreams = async (accounts) => {
   const promiseArray = accounts.map(async (account) => {
@@ -27,6 +28,9 @@ const getStreams = async (accounts) => {
   }
 };
 
-// getStreams(accounts);
+const getAccounts = async () => {
+  return await axios.get(apiUrl);
+};
 
-export default getStreams;
+const service = { getStreams, getAccounts };
+export default service;
