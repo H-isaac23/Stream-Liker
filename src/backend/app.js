@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const config = require("./utils/config");
 const url = config.MONGODB_URI;
 const accountRouter = require("./controllers/accounts");
+const apiRouter = require("./controllers/youtube-api");
 const cors = require("cors");
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 
 app.use("/api/v1/accounts", accountRouter);
+app.use("/", apiRouter);
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 
