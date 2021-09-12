@@ -37,3 +37,23 @@
   transform: translateX(10em);
   transition: all 1000ms ease;
 }
+
+.bodyStreams-enter {
+  position: absolute;
+  transform: translateX(-10em);
+  filter: opacity(0);
+}
+.bodyStreams-enter-active {
+  filter: opacity(100%);
+  transform: translateX(0);
+  transition: all 1000ms ease;
+}
+.bodyStreams-exit {
+  position: absolute;
+  filter: opacity(100%);
+}
+.bodyStreams-exit-active {
+  filter: opacity(0);
+  transform: translateX(10em);
+  transition: all 1000ms ease;
+}
