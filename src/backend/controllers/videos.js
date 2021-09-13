@@ -29,4 +29,11 @@ videoRouter.post("/", async (req, res) => {
   res.status(200).end();
 });
 
+videoRouter.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  await Video.findByIdAndRemove(id);
+
+  res.status(200).end();
+});
+
 module.exports = videoRouter;
