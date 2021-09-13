@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 
-const videoIdSchema = new mongoose.Schema({
+const videoSchema = new mongoose.Schema({
   dateLiked: Date,
   videoId: {
     type: String,
@@ -10,12 +10,12 @@ const videoIdSchema = new mongoose.Schema({
   },
 });
 
-videoIdSchema.plugin(uniqueValidator);
-videoIdSchema.set("toJSON", {
+videoSchema.plugin(uniqueValidator);
+videoSchema.set("toJSON", {
   transform: (doc, returnedObj) => {
     returnedObj.id = returnedObj._id.toString();
     delete returnedObj._id;
   },
 });
 
-module.exports = mongoose.model("Video", videoIdSchema);
+module.exports = mongoose.model("Video", videoSchema);
