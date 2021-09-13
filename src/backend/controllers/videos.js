@@ -8,11 +8,25 @@ videoRouter.get("/", async (req, res) => {
 
 videoRouter.post("/", async (req, res) => {
   const body = req.body;
-  const newVideoLiked = new Video({
-    dateLiked: new Date(),
-    videoId: body.videoId,
-  });
 
-  await newVideoLiked.save();
+  if (body.length === 0) {
+    return res.status(400).json({ error: "No videos supplied" });
+  }
+
+  const promiseArray = [];
+
+  for (let i = 0; i < body.length; i++) {
+    const newVideoLiked = new Video({
+      dateLiked: new Date(),
+      videoId: body[i].videoId,
+    });
+
+    promiseArray.push(newVideoLiked.save());
+  }
+
+  await Promise.all(promiseArray);
+
   res.status(200).end();
 });
+
+module.exports = videoRouter;
