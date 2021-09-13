@@ -2,6 +2,7 @@ require("dotenv").config();
 const http = require("http");
 const url = require("url");
 const opn = require("open");
+const fs = require("fs");
 const { google } = require("googleapis");
 const destroyer = require("server-destroy");
 
@@ -15,7 +16,7 @@ const oauth2Client = new google.auth.OAuth2(
 );
 
 google.options({ auth: oauth2Client });
-
+const scope = ["https://www.googleapis.com/auth/youtube"];
 const authenticate = async () => {
   return new Promise((resolve, reject) => {
     const authUrl = oauth2Client.generateAuthUrl({
@@ -30,7 +31,6 @@ const authenticate = async () => {
           res.end("Authentication successful! Please return to the console.");
           server.destroy();
           const { tokens } = await oauth2Client.getToken(qs.get("code"));
-          console.log(tokens);
           oauth2Client.credential = tokens;
           resolve(oauth2Client);
         }
@@ -47,5 +47,65 @@ const authenticate = async () => {
   });
 };
 
-const scope = ["https://www.googleapis.com/auth/youtube"];
-authenticate(scope).then((client) => console.log(client.credentials));
+let credjson = fs.readFileSync("credentials.json", "utf-8");
+let credentials = JSON.parse(credjson);
+console.log(credentials.length === 0);
+
+const likeVideo = (auth, v_id) => {
+  console.log("Liking video...");
+  const service = google.youtube("v3");
+  service.playlistItems.insert(
+    {
+      auth: auth,
+      part: "snippet",
+      requestBody: {
+        snippet: {
+          playlistId: "LL",
+          resourceId: {
+            kind: "youtube#video",
+            videoId: v_id,
+          },
+        },
+      },
+    },
+    function (err) {
+      if (err) {
+        console.log(err.errors[0].message);
+        return;
+      }
+
+      console.log("Liked video");
+    }
+  );
+};
+
+if (credentials.length === 0 || JSON.stringify(credentials)[0] === "{}") {
+  authenticate().then((client) => {
+    credentials = [client.credential];
+    credjson = JSON.stringify(credentials);
+    fs.writeFileSync("credentials.json", credjson, "utf-8");
+    console.log(credentials, "=====================");
+    likeVideo();
+  });
+} else {
+  const tokens = credentials[0];
+  oauth2Client.setCredentials(tokens);
+  oauth2Client.on("tokens", (tokens) => {
+    if (tokens.refresh_token) {
+      console.log(tokens.refresh_token);
+    }
+    console.log(tokens.access_token);
+  });
+
+  const testArray = [
+    "LL9wopVDO1g",
+    "Zz8PJpu5Sgw",
+    "aPjeUUE25bQ",
+    "JVWqmb15QGI",
+  ];
+  for (let i = 0; i < testArray.length; i++) {
+    likeVideo(oauth2Client, testArray[i]);
+  }
+
+  // setTimeout(likeVideo(oauth2Client, "Zz8PJpu5Sgw"), 5000);
+}
