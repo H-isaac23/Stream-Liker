@@ -97,15 +97,15 @@ if (credentials.length === 0 || JSON.stringify(credentials)[0] === "{}") {
     console.log(tokens.access_token);
   });
 
-  const testArray = [
-    "LL9wopVDO1g",
-    "Zz8PJpu5Sgw",
-    "aPjeUUE25bQ",
-    "JVWqmb15QGI",
-  ];
-  for (let i = 0; i < testArray.length; i++) {
-    likeVideo(oauth2Client, testArray[i]);
-  }
+  // const testArray = [
+  //   "LL9wopVDO1g",
+  //   "Zz8PJpu5Sgw",
+  //   "aPjeUUE25bQ",
+  //   "JVWqmb15QGI",
+  // ];
+  // for (let i = 0; i < testArray.length; i++) {
+  //   likeVideo(oauth2Client, testArray[i]);
+  // }
 
   // setTimeout(likeVideo(oauth2Client, "Zz8PJpu5Sgw"), 5000);
 }
