@@ -5,15 +5,34 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { CSSTransition } from "react-transition-group";
 import "./Body.css";
 import service from "../../services/getStreams";
+import videoService from "../../services/videos";
 
 const Body = () => {
   const [showing, setShowing] = useState("Like");
   const [streams, setStreams] = useState([]);
 
   const onClickingLike = async () => {
+    // show the loading portion
     setShowing("Loading");
+
+    // get accounts for checking and videos for filtering
     const accounts = await service.getAccounts();
+    let likedVideos = await videoService.getLikedVideos();
+    likedVideos = likedVideos.data.map((video) => video.videoId);
+
+    // get active streams
     const streamData = await service.getStreams(accounts.data);
+    const toAppend = streamData.filter(
+      (stream) => !likedVideos.includes(stream.streamUrl.slice(20))
+    );
+
+    // TODO: Like videos
+
+    // append filtered streams to db
+    const response = await videoService.appendToDb(toAppend);
+    console.log(response.data);
+
+    // show active streams
     setStreams(streamData);
     setShowing("Streams");
   };
