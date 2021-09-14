@@ -10,7 +10,7 @@ videoRouter.post("/", async (req, res) => {
   const body = req.body;
 
   if (body.length === 0) {
-    return res.status(400).json({ error: "No videos supplied" });
+    return res.status(200).json({ message: "No videos supplied" });
   }
 
   const promiseArray = [];
@@ -18,7 +18,9 @@ videoRouter.post("/", async (req, res) => {
   for (let i = 0; i < body.length; i++) {
     const newVideoLiked = new Video({
       dateLiked: new Date(),
-      videoId: body[i].videoId,
+      videoId: body[i].streamUrl.slice(20),
+      accountName: body[i].accountName,
+      accountId: body[i].accountId,
     });
 
     promiseArray.push(newVideoLiked.save());
