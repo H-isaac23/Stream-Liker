@@ -8,6 +8,14 @@ const videoSchema = new mongoose.Schema({
     require: true,
     unique: true,
   },
+  accountName: {
+    type: String,
+    require: true,
+  },
+  accountId: {
+    type: String,
+    require: true,
+  },
 });
 
 videoSchema.plugin(uniqueValidator);
