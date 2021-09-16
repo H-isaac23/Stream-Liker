@@ -1,5 +1,6 @@
 const videoRouter = require("express").Router();
 const Video = require("../models/video");
+const videoLiker = require("../api/oauth2");
 
 videoRouter.get("/", async (req, res) => {
   const response = await Video.find({});
@@ -35,6 +36,12 @@ videoRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
   await Video.findByIdAndRemove(id);
 
+  res.status(200).end();
+});
+
+videoRouter.post("/like", async (req, res) => {
+  const body = req.body;
+  await videoLiker(body);
   res.status(200).end();
 });
 
