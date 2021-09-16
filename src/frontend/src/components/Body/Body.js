@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Body.module.scss";
+import ActiveStreams from "../Streams/ActiveStreams";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { CSSTransition } from "react-transition-group";
@@ -81,7 +82,11 @@ const Streams = ({ streams }) => {
   return (
     <div>
       {streams.map((stream) => (
-        <p key={stream.accountId}>{stream.accountName}</p>
+        <ActiveStreams
+          key={stream.accountId}
+          name={stream.accountName}
+          url={"https://www.youtube.com/watch?v=" + stream.streamUrl.slice(20)}
+        />
       ))}
     </div>
   );

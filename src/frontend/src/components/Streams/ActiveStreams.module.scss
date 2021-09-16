@@ -1,1 +1,26 @@
 @import "../../styles/variables.scss";
+
+.streamContainer {
+  font-size: 1.5em;
+  background: $background;
+  border-radius: 2em;
+
+  a {
+    text-decoration: none;
+  }
+
+  .container {
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4em;
+    padding: 1em;
+  }
+
+  .container:hover {
+    border-radius: 2em;
+    background: $white;
+    color: $background;
+  }
+}
