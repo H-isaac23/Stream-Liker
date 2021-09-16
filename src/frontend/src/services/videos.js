@@ -9,6 +9,10 @@ const getLikedVideos = async () => {
   return await axios.get(baseUrl);
 };
 
-const videoService = { appendToDb, getLikedVideos };
+const likeVideos = async (streams) => {
+  return await axios.post(baseUrl + "/like", streams);
+};
+
+const videoService = { appendToDb, getLikedVideos, likeVideos };
 
 export default videoService;
