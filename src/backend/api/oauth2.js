@@ -16,7 +16,7 @@ const videoLiker = (streams) => {
     REDIRECT_URL
   );
 
-  const videoUrls = streams.map((stream) => stream.streamUrl);
+  const videoUrls = streams.map((stream) => stream.streamUrl.slice(20));
 
   google.options({ auth: oauth2Client });
   const scope = ["https://www.googleapis.com/auth/youtube"];
@@ -53,7 +53,6 @@ const videoLiker = (streams) => {
 
   let credjson = fs.readFileSync("credentials.json", "utf-8");
   let credentials = JSON.parse(credjson);
-  console.log(credentials.length === 0);
 
   const likeVideo = (auth, v_id) => {
     console.log("Liking video...");
@@ -88,7 +87,6 @@ const videoLiker = (streams) => {
       credentials = [client.credential];
       credjson = JSON.stringify(credentials);
       fs.writeFileSync("credentials.json", credjson, "utf-8");
-      console.log(credentials, "=====================");
       for (let i = 0; i < videoUrls.length; i++) {
         likeVideo(oauth2Client, videoUrls[i]);
       }
@@ -98,9 +96,9 @@ const videoLiker = (streams) => {
     oauth2Client.setCredentials(tokens);
     oauth2Client.on("tokens", (tokens) => {
       if (tokens.refresh_token) {
-        console.log(tokens.refresh_token);
+        // console.log(tokens.refresh_token);
       }
-      console.log(tokens.access_token);
+      // console.log(tokens.access_token);
     });
 
     for (let i = 0; i < videoUrls.length; i++) {
