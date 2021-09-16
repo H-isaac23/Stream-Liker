@@ -28,10 +28,10 @@ const Body = () => {
     );
 
     // TODO: Like videos
+    await videoService.likeVideos(toAppend);
 
     // append filtered streams to db
-    const response = await videoService.appendToDb(toAppend);
-    console.log(response.data);
+    await videoService.appendToDb(toAppend);
 
     // show active streams
     setStreams(streamData);
