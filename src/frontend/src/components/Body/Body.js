@@ -64,7 +64,10 @@ const Body = () => {
         timeout={1000}
         classNames="bodyStreams"
       >
-        <Streams streams={streams} />
+        <div>
+          <Return onClick={() => setShowing("Like")} />
+          <Streams streams={streams} />
+        </div>
       </CSSTransition>
     </div>
   );
@@ -88,6 +91,14 @@ const Streams = ({ streams }) => {
           url={"https://www.youtube.com/watch?v=" + stream.streamUrl.slice(20)}
         />
       ))}
+    </div>
+  );
+};
+
+const Return = ({ onClick }) => {
+  return (
+    <div className={styles.returnButton}>
+      <button onClick={onClick}>Return</button>
     </div>
   );
 };

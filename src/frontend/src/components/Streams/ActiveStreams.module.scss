@@ -5,6 +5,9 @@
   background: $background;
   border-radius: 2em;
   margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   a {
     text-decoration: none;
