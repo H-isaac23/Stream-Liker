@@ -1,7 +1,7 @@
 .body-primary-enter {
   position: absolute;
   filter: opacity(0);
-  transform: translateX(10em);
+  transform: translateX(-10em);
 }
 .body-primary-enter-active {
   filter: opacity(100%);
