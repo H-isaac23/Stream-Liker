@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Body.module.scss";
 import ActiveStreams from "../Streams/ActiveStreams";
+import { isMobile } from "react-device-detect";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { CSSTransition } from "react-transition-group";
@@ -12,7 +13,7 @@ const Body = () => {
   const [showing, setShowing] = useState("Like");
   const [streams, setStreams] = useState([]);
 
-  const onClickingLike = async () => {
+  const onClickingLike = async (mobile) => {
     // show the loading portion
     setShowing("Loading");
 
@@ -22,7 +23,8 @@ const Body = () => {
     likedVideos = likedVideos.data.map((video) => video.videoId);
 
     // get active streams
-    const streamData = await service.getStreams(accounts.data);
+    const streamData = await service.getStreams(accounts.data, mobile);
+    console.log(streamData);
     const toAppend = streamData.filter(
       (stream) => !likedVideos.includes(stream.streamUrl.slice(20))
     );
@@ -46,7 +48,7 @@ const Body = () => {
         timeout={1000}
         classNames="body-primary"
       >
-        <LikeButton onClick={onClickingLike} />
+        <LikeButton onClick={() => onClickingLike(isMobile)} />
       </CSSTransition>
       <CSSTransition
         in={showing === "Loading"}
