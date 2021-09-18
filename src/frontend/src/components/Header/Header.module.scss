@@ -1,13 +1,13 @@
 @import "../../styles/variables.scss";
 
 .headerContainer {
+  overflow: hidden;
   font-size: 1.5em;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 3em;
-  width: 100%;
-  padding: 0.75em;
+  padding: 0.75em 0 0.75em 0.75em;
 
   .headerMask {
     margin-left: 1em;
