@@ -3,8 +3,15 @@ const Video = require("../models/video");
 const videoLiker = require("../api/oauth2");
 
 videoRouter.get("/", async (req, res) => {
-  const response = await Video.find({});
-  res.json(response);
+  const videos = await Video.find({});
+
+  // only return the videos that was liked 24 hours before
+  const filteredVideos = videos.filter(
+    (video) =>
+      video.dateLiked > new Date(new Date().getTime() - 3600 * 1000 * 24)
+  );
+
+  res.json(filteredVideos);
 });
 
 videoRouter.post("/", async (req, res) => {
