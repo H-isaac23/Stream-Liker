@@ -29,6 +29,7 @@ mongoose
   .catch((err) => console.log(err.message));
 
 // use middlewares
+app.use(express.static("build"));
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(middleware.requestLogger);
