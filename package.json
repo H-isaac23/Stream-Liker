@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "startFrontend": "cd ./src/frontend && npm start",
-    "start": "cd ./src/backend && npm install && npm start"
+    "startFrontend": "cd ./src/frontend && npm start"
   },
   "repository": {
     "type": "git",
