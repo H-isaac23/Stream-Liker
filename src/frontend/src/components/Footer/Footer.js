@@ -2,7 +2,7 @@ import styles from "./Footer.module.scss";
 
 const Footer = () => {
   const twitter_site = "https://twitter.com/dev__holo";
-  const github_site = "https://github.com/H-isaac23";
+  const github_site = "https://github.com/H-isaac23/Stream-Liker";
 
   return (
     <footer className={styles.footer}>
