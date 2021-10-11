@@ -34,7 +34,7 @@ const getStreams = async (accounts, isMobile) => {
   if (activeStreams.length >= 1) {
     return activeStreams;
   } else {
-    return ["No Streams Available"];
+    return [{ message: "No Streams Available" }];
   }
 };
 

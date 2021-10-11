@@ -25,18 +25,19 @@ const Body = () => {
     // get active streams
     const streamData = await service.getStreams(accounts.data, mobile);
     console.log(streamData);
-    const toAppend = streamData.filter(
-      (stream) => !likedVideos.includes(stream.streamUrl.slice(20))
-    );
+    if (streamData[0].message !== "No Streams Available") {
+      const toAppend = streamData.filter(
+        (stream) => !likedVideos.includes(stream.streamUrl.slice(20))
+      );
+      // TODO: Like videos
+      await videoService.likeVideos(toAppend);
 
-    // TODO: Like videos
-    await videoService.likeVideos(toAppend);
+      // append filtered streams to db
+      await videoService.appendToDb(toAppend);
 
-    // append filtered streams to db
-    await videoService.appendToDb(toAppend);
-
-    // show active streams
-    setStreams(streamData);
+      // show active streams
+      setStreams(streamData);
+    }
     setShowing("Streams");
   };
 
@@ -84,6 +85,21 @@ const LikeButton = ({ onClick }) => {
 };
 
 const Streams = ({ streams }) => {
+  const noStreamStyle = {
+    padding: "1em",
+    background: "#436cdf",
+    color: "white",
+    borderRadius: "1em",
+  };
+
+  if (streams.length === 0) {
+    return (
+      <div className={styles.streamContainer} style={noStreamStyle}>
+        <div className={styles.container}>No Active Streams</div>
+      </div>
+    );
+  }
+
   return (
     <div>
       {streams.map((stream) => (
