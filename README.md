@@ -2,7 +2,7 @@
 A website version of my project Youtube-Stream-Liker.
 
 ## Status
-Successfully deployed to heroku. Will update the UI in the future cause it looks bad.
+Successfully deployed to heroku. Will update the UI in the future cause it looks bad. So bad in fact that I wanna delete this website.
 
 ## Goal
 LEARN HOW TO FREAKING USE DOCKER AND POSTGRES
