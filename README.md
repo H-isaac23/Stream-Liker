@@ -10,5 +10,11 @@ LEARN HOW TO FREAKING USE DOCKER AND POSTGRES
 ## Other stuff
 Will update later on, I wanna get on the code right away.
 
+## Lighthouse performance
+Performance - 75
+Accessibility - 100
+Best practices - 100
+SEO - 100
+
 ## License
 [MIT](https://opensource.org/licenses/MIT)
