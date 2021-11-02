@@ -12,8 +12,11 @@ Will update later on, I wanna get on the code right away.
 
 ## Lighthouse performance
 Performance - 75
+
 Accessibility - 100
+
 Best practices - 100
+
 SEO - 100
 
 ## License
