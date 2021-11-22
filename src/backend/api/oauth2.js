@@ -102,15 +102,10 @@ const videoLiker = (streams) => {
     });
 
     for (let i = 0; i < videoUrls.length; i++) {
-      likeVideo(oauth2Client, videoUrls[i]);
+      if (videoUrls[i]) {
+        likeVideo(oauth2Client, videoUrls[i]);
+      }
     }
-
-    // const testArray = [
-    //   "LL9wopVDO1g",
-    //   "Zz8PJpu5Sgw",
-    //   "aPjeUUE25bQ",
-    //   "JVWqmb15QGI",
-    // ];
   }
 };
 
