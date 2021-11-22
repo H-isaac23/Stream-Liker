@@ -3,6 +3,8 @@
 .bodyContainer {
   position: relative;
   background: $primary;
+  flex-grow: 1;
+
   display: flex;
   justify-content: center;
   align-items: center;

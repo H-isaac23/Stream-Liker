@@ -1,9 +1,8 @@
 @import "../../styles/variables.scss";
 
 .footer {
-  position: relative;
-  bottom: 0;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .footerContainer {

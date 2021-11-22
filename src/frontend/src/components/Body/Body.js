@@ -6,6 +6,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { CSSTransition } from "react-transition-group";
 import "./Body.css";
+
 import service from "../../services/getStreams";
 import videoService from "../../services/videos";
 
@@ -38,6 +39,7 @@ const Body = () => {
       // show active streams
       setStreams(streamData);
     }
+
     setShowing("Streams");
   };
 
@@ -101,7 +103,7 @@ const Streams = ({ streams }) => {
   }
 
   return (
-    <div>
+    <div className="activeStreamList">
       {streams.map((stream) => (
         <ActiveStreams
           key={stream.accountId}

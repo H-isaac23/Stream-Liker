@@ -4,14 +4,24 @@ import Header from "./components/Header/Header";
 import "./styles/globals.scss";
 
 const App = () => {
+  const appStyle = {
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  };
   const style = {
-    height: "100vh",
+    flexGrow: "1",
+    height: "auto",
+    display: "flex",
+    flexDirection: "column",
   };
   return (
-    <div style={style}>
+    <div style={appStyle}>
       <Header />
-      <Body />
-      <Footer />
+      <div style={style}>
+        <Body />
+        <Footer />
+      </div>
     </div>
   );
 };
