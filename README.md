@@ -1,5 +1,5 @@
 # Stream-Liker
-A website version of my project Youtube-Stream-Liker.
+A website version of my project [Youtube-Stream-Liker](https://github.com/H-isaac23/Youtube-Streams-Liker).
 
 ## Lighthouse performance
 Performance - 75
